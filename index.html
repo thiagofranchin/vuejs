@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <style>
+    body { background: gray;}
+
+  </style>
+
+</head>
+<body>
+
+  <div id="app">
+    <ul>
+      <li v-for="produto in produtos">{{ produto.id }}: {{ produto.nome }}</li>
+    </ul>
+
+    <ul>
+      <li v-for="produto in produtos" :key="produto.id">{{ produto.id }}: {{ produto.nome }}</li>
+    </ul>
+
+    <button @click="produtos.reverse()">Inverter Lista</button><br>
+    <input @keyup.enter="addProduto" placeholder="Digite e tecle ENTER">
+
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        texto: 'aaa',
+        produtos: [
+          { id: 1, nome: 'Monitor' },
+          { id: 2, nome: 'Teclado' },
+          { id: 3, nome: 'Mouse' },
+          { id: 4, nome: 'Processador' },
+        ]
+      },
+      methods: {
+        addProduto: function(event) {
+          this.texto = event.target.value;
+          let id = this.produtos.length + 1;
+          this.produtos.push({ id: id, nome: this.texto })
+        }
+      }
+
+    })
+  </script>
+
+</body>
+</html>

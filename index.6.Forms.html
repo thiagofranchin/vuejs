@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <p v-on:click="clicando('p', $event)">
+      Texto do paragrafo
+      <button v-on:click.stop="clicando('button', $event)">Botão</button>
+    </p>
+    <form>
+
+      <input type="text">
+      <button v-on:click="onSubmit">Enviar sem modificador</button>
+      <button v-on:click.prevent.stop="onSubmit">Enviar com modificador</button>
+      <p style="color: green;">{{ message }}</p>
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        message: '',
+
+      },
+      methods: {
+        clicando: function(minhaString, event) {
+          console.log(minhaString)
+        },
+        onSubmit: function(){
+          console.log('Formulário enviado com sucesso!')
+          this.message = 'Formulário enviado com sucesso!'
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

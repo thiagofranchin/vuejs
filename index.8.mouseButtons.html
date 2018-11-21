@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <button v-on:click.left="onClick('Tecla Mouse: ', $event)">Esquerdo</button>
+    <button v-on:click.middle="onClick('Tecla Mouse: ', $event)">Meio</button>
+    <button v-on:click.right="onClick('Tecla Mouse: ', $event)">Direito</button>
+    <button v-on:click.right.prevent="onClick('Tecla Mouse: ', $event)">Direito sem menu de contexto</button>
+    <p>{{ teclaMouse }}</p>
+
+
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        teclaMouse: ''
+      },
+      methods: {
+        onClick: function(breguenights, event){
+          console.log(breguenights + event.button + ' digitada!');
+          let tecla = event.button;
+          if(tecla == 0){
+            this.teclaMouse = 'Botão esquedo pressionado: ' + event.button;
+          } else if(tecla == 1) {
+            this.teclaMouse = 'Botão meio pressionado: ' + event.button;
+          }
+          else {
+            this.teclaMouse = 'Botão direito pressionado: ' + event.button;
+          }
+
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

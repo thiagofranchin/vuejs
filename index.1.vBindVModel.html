@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <style>body { background: gray;}</style>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+  <div id="app">
+    <h2>v-bind and v-model</h2>
+    <p>
+      <input :value='nome' @input="nome = $event.target.value">
+      <input v-model='nome'>
+      Nome: {{ nome }}
+    </p>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        nome: 'Thiago',
+        sobrenome: 'Franchin'
+      },
+
+    })
+  </script>
+
+</body>
+</html>

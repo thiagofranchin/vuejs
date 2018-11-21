@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <style>
+    body { background: gray;}
+
+  </style>
+
+</head>
+<body>
+
+  <div id="app">
+    <select v-model="nota">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="">Sem nota</option>
+    </select>
+    <p v-if="nota === 'A'">Parabéns sua nota é: A</p>
+    <p v-else-if="nota === 'B'">Nada mal sua nota é: B</p>
+    <p v-else-if="nota === 'C'">Humm, acesso negado: C</p>
+    <p v-else>Nota não publicada</p>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        nota: ''
+      },
+    })
+  </script>
+
+</body>
+</html>

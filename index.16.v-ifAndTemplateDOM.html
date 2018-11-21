@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <style>
+    body { background: gray;}
+
+  </style>
+
+</head>
+<body>
+
+  <div id="app">
+    <p>No DOM a tag 'template' não aparece, a tag 'div' é exibida</p>
+    <ul>
+      <li>List 01</li>
+      <li>List 02</li>
+      <template v-if="mostrar">
+          <li>List 03 c/ template</li>
+          <li>List 04 c/ template</li>
+      </template>
+      <div v-if="mostrar">
+        <li>List 05 c/ div</li>
+        <li>List 06 c/ div</li>
+      </div>
+    </ul>
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        mostrar: true
+      },
+    })
+  </script>
+
+</body>
+</html>

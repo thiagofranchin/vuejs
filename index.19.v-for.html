@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <style>
+    body { background: gray;}
+
+  </style>
+
+</head>
+<body>
+
+  <div id="app">
+    <ul>
+      <template v-for="(valor, chave, indice) in cadastros">
+        <li>{{ valor.nome }}</li>
+        <li>{{ valor.sobrenome }}</li>
+        <li>{{ valor.idade }}</li>
+      </template>
+    </ul>
+    <hr>
+    <ul>
+      <li v-for="(prod, chave, indice) in produtos">{{ indice + 1}}. {{ chave }}: {{ prod }}</li>
+    </ul>
+
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        cadastros: [{
+          nome: 'Thiago',
+          sobrenome: 'Franchin',
+          idade: 37
+        },
+        {
+          nome: 'Camilla',
+          sobrenome: 'Venditti',
+          idade: 33
+        }],
+        produtos: {
+          Monitor: 'LG',
+          Teclado: 'Cougar',
+          Mouse: 'Razer'
+        }
+      }
+
+    })
+  </script>
+
+</body>
+</html>

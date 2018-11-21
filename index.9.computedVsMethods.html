@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <style>body { background: gray;}</style>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+  <div id="app">
+    <p>
+      {{ nome }} : {{ nome.split('').reverse().join('') }}
+    </p>
+    <p>Computed: {{ nome }} : {{ nomeInverseComputed }}</p>
+    <p>Method: {{ nome }} : {{ nomeInverseMethod() }}</p>
+    <p>Autor: {{ nomeDoAutorInteiro ? 'Thiago Franchin' : 'Thiago' }}</p>
+    <button @click="nomeDoAutorInteiro = !nomeDoAutorInteiro">Alterar nome do autor</button>
+    <br>
+    <input @keyup.enter="AlterarNome">
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        nome: 'Thiago Franchin',
+        nomeDoAutorInteiro: false
+      },
+      computed: {
+        // Faz dependencia ao 'nome', quando 'nome' for alterado o método sera reexecutaado (Cacheia)
+        nomeInverseComputed: function() {
+          console.log('computed')
+          return this.nome.split('').reverse().join('')
+        }
+      },
+      methods: {
+        AlterarNome: function(event){
+          console.log(event)
+          this.nome = event.target.value;
+        },
+        // A cada requisição o método é executado, mesmo que não tenha havido alteração em 'nome'
+        nomeInverseMethod: function() {
+          console.log('methods')
+          return this.nome.split('').reverse().join('')
+        }
+      },
+    })
+  </script>
+
+</body>
+</html>

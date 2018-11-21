@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <style>
+    body { background: gray;}
+
+  </style>
+
+</head>
+<body>
+
+  <div id="app">
+    <ul>
+      <li v-for="(prod, key) in produtos">{{ key + 1}}: {{ texto }} {{prod}}</li><br>
+      <li v-for="(prod, key) of produtos">{{ key + 1}}: {{ texto }} {{prod}}</li>
+    </ul>
+
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      data: {
+        texto: 'Produto:',
+        produtos: [
+          'Monitor',
+          'Teclado',
+          'Mouse'
+        ]
+      }
+
+    })
+  </script>
+
+</body>
+</html>

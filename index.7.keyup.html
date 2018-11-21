@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+
+  <div id="app">
+    <input type="text" v-on:keyup="onKey" placeholder="Escreva">
+    <input type="text" v-on:keyup.enter.esc.k.g.t.q="onKey" placeholder="Teclas da folia">
+    <input type="text" v-on:keyup.ctrl.enter.space="onKey" placeholder="CTRL + Enter or space">
+    <input type="text" v-on:keyup.ctrl.enter.exact="onKey" placeholder="CTRL + Enter (Exact)">
+
+  </div>
+
+  <script type="text/javascript">
+    new Vue({
+      el: "#app",
+      methods: {
+        onKey: function(event){
+          console.log('Tecla: ' + event.key + ' digitada!');
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>
