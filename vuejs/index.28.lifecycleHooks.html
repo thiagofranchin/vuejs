@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <style>
+    body { background: gray;}
+  </style>
+
+</head>
+<body>
+
+  <div id="app">
+    <h2>{{ titulo }}</h2>
+    <button @click="alterarTitulo">Inverter Título</button>
+    <button @click="destruirInstancia">Destruir instância</button>
+  </div>
+
+<script type="text/javascript">
+
+
+let vm = new Vue({
+  // el: "#app",
+  data: {
+    titulo: 'VueJS Curso'
+  },
+  methods: {
+    alterarTitulo: function() {
+      this.titulo = this.titulo.split('').reverse().join('');
+    },
+    destruirInstancia: function() {
+      this.$destroy();
+    }
+  },
+  beforeCreate: function() {
+    console.log('01 - beforeCreate()');
+  },
+  created: function() {
+    console.log('02 - created()');
+  },
+  beforeMount: function() {
+    console.log('03- beforeMount()');
+  },
+  mounted: function() {
+    console.log('04 - mounted()');
+  },
+  beforeUpdate: function() {
+    console.log('05 - beforeUpdate()');
+  },
+  updated: function() {
+    console.log('06 - updated()');
+  },
+  beforeDestroy: function() {
+    console.log('07 - beforeDestroy()');
+  },
+  destroyed: function() {
+    console.log('08 - destroyed()');
+  },
+});
+
+setTimeout(function() {
+  vm.$mount('#app')
+}, 3000);
+
+</script>
+
+</body>
+</html>

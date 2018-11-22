@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Curso VueJS</title>
+  <script type="text/javascript" src="https://unpkg.com/vue"></script>
+  <style>
+    body { background: gray;}
+  </style>
+
+</head>
+<body>
+
+  <div id="app1">
+    <h4>Instância #app1</h4>
+    <p>{{ name }}</p>
+  </div>
+
+  <div id="app2">
+    <h4>Instância #app2</h4>
+    <p>{{ name }}</p>
+    <button @click="altName">Alterar nome</button>
+    <button @click="backName">Voltar nome</button>
+  </div>
+
+
+<script type="text/javascript">
+  let vm1 = new Vue({
+    el: "#app1",
+    data: {
+      name: 'Thiago'
+    }
+  })
+
+  new Vue({
+    el: "#app2",
+    data: {
+      name: 'Camilla'
+    },
+    methods: {
+      altName: function() {
+        this.name = vm1.name;
+      },
+      backName: function() {
+        this.name = 'Camilla';
+      }
+
+    }
+
+  })
+</script>
+
+</body>
+</html>
